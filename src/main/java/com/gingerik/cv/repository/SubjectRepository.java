@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface SubjectRepository extends CrudRepository<Subject, Long> {
 
-    public Iterable<Subject> findByLastNameContainingIgnoreCase(String lastName);
+    Iterable<Subject> findByLastName(String lastName);
+    Iterable<Subject> findByLastNameIgnoreCase(String lastName);
 
 }

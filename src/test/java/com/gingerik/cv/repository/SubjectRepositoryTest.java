@@ -1,12 +1,10 @@
 package com.gingerik.cv.repository;
 
 import com.gingerik.cv.Application;
-import com.gingerik.cv.DatabaseConfig;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DatabaseTearDown;
-import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
                          TransactionalTestExecutionListener.class,
                          DbUnitTestExecutionListener.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {Application.class, DatabaseConfig.class})
-@DbUnitConfiguration(databaseConnection="dbUnitDatabaseConnection")
+@SpringApplicationConfiguration(classes = Application.class)
 @DatabaseSetup(SubjectRepositoryTest.DATASET)
 @DatabaseTearDown(type = DatabaseOperation.DELETE_ALL, value = {SubjectRepositoryTest.DATASET})
 @DirtiesContext
